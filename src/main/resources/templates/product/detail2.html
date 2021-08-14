@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" 
+th:replace="~{/layout/index :: dynamic(~{::main})}">
+<body>
+    <main th:object="${items}" >
+
+       
+        <div class="col-sm-9 padding-right">
+            <div class="product-details"><!--product-details-->
+                <div class="col-sm-5">
+                    <div class="view-product">
+                        <img th:src="@{|/assets/images/*{image}|}" alt="" />
+                    
+                    </div>
+               
+        
+                </div>
+                <div class="col-sm-7">
+                    <div class="product-information"><!--/product-information-->
+                        <img src="images/product-details/new.jpg" class="newarrival" alt="" />
+                        <h2 th:text="*{name}"></h2>
+                        <img src="images/product-details/rating.png" alt="" />
+                        <span>
+                            <span  th:text="*{price}"></span>
+                          
+                            </button>
+                        </span>
+                        <p><b>Create Date:</b><i th:text="*{createDate}"></i></p>
+                        <p><b>Category:</b><i th:text="*{category.name}"></i></p>
+                    </div><!--/product-information-->
+                </div>
+            </div><!--/product-details-->
+            
+           
+            
+            <div class="recommended_items"><!--recommended_items-->
+                <h2 class="title text-center">recommended items</h2>
+                <ul>
+                    <li th:each="p:*{category.products}">
+                        <a th:href="@{|/product/detail/${p.id}|}" th:text="${p.name}"></a>
+                    </li>
+                </ul>
+                
+            </div><!--/recommended_items-->
+            
+        </div>
+
+    </main>
+</body>
+</html>

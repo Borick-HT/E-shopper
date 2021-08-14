@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" 
+th:replace="~{/layout/index :: dynamic(~{::main})}">
+<body>
+    <main class="">
+        
+				<div class="col-sm-3">
+                         
+					<div class="left-sidebar">
+						<h2>Category</h2>
+						
+						<div class="shipping text-center"><!--shipping-->
+						
+<i class="fa fa-shopping-cart"></i>  <a th:href="@{/cart/view}">{{cart.count}} items x ${{cart.amount|number:2}}</a>	
+                        					</div><!--/shipping-->
+						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							
+							
+					
+							<div class="panel panel-default">
+								<div class="panel-heading">
+                                   
+									<h4 class="panel-title">
+                    <a th:each="c:${cates}" th:href="@{|/product/list?cid=${c.id}|}" class="list-group-item"><i class="fa fa-gift" aria-hidden="true"></i> [[${c.name}]]</a>
+
+                  </h4>
+								</div>
+							</div>
+						</div><!--/category-products-->
+					
+				
+						
+					
+					</div>
+				</div>
+        <div class="col-sm-9" >
+            <div class="features_items"><!--features_items-->
+                <h2 class="title text-center">Features Items</h2>
+                <div class="col-sm-4"  th:each="p:${items}" >
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <a th:href="@{|/product/detail/${p.id}|}">
+                                        <img th:src="@{|/assets/images/${p.image}|}" alt=""></a>
+                                             <h2>$[[${p.price}]]</h2>
+                                    <p  th:utext=" ${p.name}"></p>
+                                    <a href="#" class="btn btn-default add-to-cart" th:attr="ng-click=@{|cart.add(${p.id})|}"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                </div>
+                             
+                        </div>
+                       
+                    </div>
+                </div>
+             
+                
+            </div><!--features_items-->
+            
+    
+            
+        </div>
+   
+    </main>
+</body>
+</html>

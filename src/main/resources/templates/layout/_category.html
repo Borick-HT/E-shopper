@@ -1,0 +1,27 @@
+<div xmlns:th="https://www.thymeleaf.org">
+
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+						<h2>Category</h2>
+												<div class="panel-group category-products" id="accordian"><!--category-productsr-->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+								  
+					<h4 class="panel-title">
+                    <a th:each="c:${cates}" th:href="@{|/product/list?cid=${c.id}|}" class="list-group-item"><i class="fa fa-gift" aria-hidden="true"></i> [[${c.name}]]</a>
+                  </h4>
+								</div>
+							</div>
+						</div><!--/category-products-->
+					
+				
+						
+						
+					
+					</div>
+				</div>
+				
+	
+	
+ 
+  </div>

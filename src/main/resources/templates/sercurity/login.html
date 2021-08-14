@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" 
+th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<main>
+    <div class="col-sm-4 col-sm-offset-1">
+      <div class="login-form"><!--login form-->
+          <h2>Login to your account</h2>
+          <form th:action="@{/sercurity/login}" method="POST" >
+              <input type="text" placeholder="Name"  name="username" /> 
+              
+              
+              <input type="password" placeholder="Password" name="password" />
+              
+              <span>
+                  <input type="checkbox" class="checkbox" name="remember-me"> 
+                  Keep me signed in
+              </span>
+              <button class="btn btn-default">Login</button>
+          </form>
+      </div><!--/login form-->
+  </div>
+
+    
+	
+	
+	</main>
+</body>
+</html>
